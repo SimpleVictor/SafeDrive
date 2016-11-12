@@ -85,6 +85,67 @@ export class MainPage implements AfterViewInit {
         this.refreshSkill(skill);
     }
 
+    LookUpFoodPlaces(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    SendTextLocation(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    CallSpecificIndividual(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    OpenContactList(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    SaveContactToFavorite(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    OpenGPS(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    SaveCurrentDestination(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    TextSpecificIndividual(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    GoBackToMain(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    GoBackPrevious(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    SetLocationAsDestinationForGps(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    CallLocation(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+
 }
 
 
