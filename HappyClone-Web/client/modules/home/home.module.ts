@@ -11,6 +11,7 @@ import {RobotLogo} from "./robot/robot.component";
 import {LogoComponent} from "./logo/logo.component";
 import {LoaderComponent} from "./loader/loader.component";
 import {PhonePage} from "./phone/phone.component";
+import {MusicPage} from "./music/music.component";
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import {PhonePage} from "./phone/phone.component";
         RobotLogo,
         LogoComponent,
         PhonePage,
+        MusicPage,
         LoaderComponent,
         WelcomePage,
         HomeComponent

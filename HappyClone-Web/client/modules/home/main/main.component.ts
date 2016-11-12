@@ -46,6 +46,7 @@ export class MainPage implements AfterViewInit {
     //Containers to show
     ShowRestaurantList: boolean = false;
     ShowContactList: boolean = false;
+    ShowMusicList: boolean = false;
 
 
 
@@ -280,6 +281,42 @@ export class MainPage implements AfterViewInit {
     }
 
     CallLocation(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);
+    }
+
+    LetsPlayAGame(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill);    
+    }
+
+    OpenMusicUp(skill){
+        console.log(`You just called ${skill}`);
+
+        let doThis = () => {
+            var cent = this.map.getCenter();
+            google.maps.event.trigger(this.map,"resize");
+            this.map.setCenter(cent);
+        }
+
+        if(!this.firstCommitLogo){
+            this.ResizeLogo();
+            TweenMax.to(this.map_container, 1, {width: '50%',ease:Back.easeInOut, onComplete: doThis});
+            TweenMax.to(this.map_overlay, 1, {width: '50%',ease:Back.easeInOut});
+        };
+
+        this.loader.css("display", "");
+        this.ShowMusicList = true;
+        setTimeout(() => {
+            let musicList = $("#music-id");
+            this.loader.css("display", "none");
+            TweenMax.to(musicList, 0.5, {scale: 1,ease:Circ.easeInOut});
+        },3000);
+
+        this.refreshSkill(skill);
+    }
+
+    CreateNotification(skill){
         console.log(`You just called ${skill}`);
         this.refreshSkill(skill);
     }

@@ -1,0 +1,14 @@
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    selector: 'music-page',
+    styleUrls: ['client/modules/home/music/music.component.css'],
+    templateUrl: `client/modules/home/music/music.component.html`
+})
+export class MusicPage implements OnInit {
+    constructor() { }
+
+    ngOnInit() { }
+
+}
