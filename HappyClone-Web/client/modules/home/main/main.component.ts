@@ -45,6 +45,7 @@ export class MainPage implements AfterViewInit {
 
     //Containers to show
     ShowRestaurantList: boolean = false;
+    ShowContactList: boolean = false;
 
 
 
@@ -147,20 +148,20 @@ export class MainPage implements AfterViewInit {
     LookUpFoodPlaces(skill){
         console.log(`You just called ${skill}`);
 
-        if(!this.firstCommitLogo){
-            this.ResizeLogo();
-        };
-
         let doThis = () => {
             var cent = this.map.getCenter();
             google.maps.event.trigger(this.map,"resize");
             this.map.setCenter(cent);
         }
 
+        if(!this.firstCommitLogo){
+            this.ResizeLogo();
+            TweenMax.to(this.map_container, 1, {width: '50%',ease:Back.easeInOut, onComplete: doThis});
+            TweenMax.to(this.map_overlay, 1, {width: '50%',ease:Back.easeInOut});
+        };
+
         this.loader.css("display", "");
 
-        TweenMax.to(this.map_container, 1, {width: '50%',ease:Back.easeInOut, onComplete: doThis});
-        TweenMax.to(this.map_overlay, 1, {width: '50%',ease:Back.easeInOut});
             // var cent = this.map.getCenter();
             // google.maps.event.trigger(this.map,"resize");
             // this.map.setCenter(cent);
@@ -217,6 +218,29 @@ export class MainPage implements AfterViewInit {
 
     OpenContactList(skill){
         console.log(`You just called ${skill}`);
+
+        let doThis = () => {
+            var cent = this.map.getCenter();
+            google.maps.event.trigger(this.map,"resize");
+            this.map.setCenter(cent);
+        }
+
+        if(!this.firstCommitLogo){
+            this.ResizeLogo();
+            TweenMax.to(this.map_container, 1, {width: '50%',ease:Back.easeInOut, onComplete: doThis});
+            TweenMax.to(this.map_overlay, 1, {width: '50%',ease:Back.easeInOut});
+        };
+
+        this.loader.css("display", "");
+        this.ShowContactList = true;
+        setTimeout(() => {
+            let contactList = $("#contact-id");
+            this.loader.css("display", "none");
+            TweenMax.to(contactList, 0.5, {scale: 1,ease:Circ.easeInOut});
+        },3000);
+
+
+
         this.refreshSkill(skill);
     }
 

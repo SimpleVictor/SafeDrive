@@ -10,6 +10,7 @@ import {WelcomePage} from "./welcome/welcome.component";
 import {RobotLogo} from "./robot/robot.component";
 import {LogoComponent} from "./logo/logo.component";
 import {LoaderComponent} from "./loader/loader.component";
+import {PhonePage} from "./phone/phone.component";
 
 @NgModule({
     imports: [
@@ -22,6 +23,7 @@ import {LoaderComponent} from "./loader/loader.component";
         MainPage,
         RobotLogo,
         LogoComponent,
+        PhonePage,
         LoaderComponent,
         WelcomePage,
         HomeComponent

@@ -1,0 +1,236 @@
+.gray {
+    color: #AAAAAA;
+}
+
+/*body,*/
+/*html {*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+/*}*/
+
+/*body {*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;*/
+/*}*/
+
+.hero {
+    background: #2980b9;
+    background: -webkit-linear-gradient(right, #2980b9, #2c3e50);
+    background: linear-gradient(to left, #2980b9, #2c3e50);
+    background: -webkit-linear-gradient(to left, #2980b9, #2c3e50);
+    box-shadow: inset 0 -15px 0 0 rgba(0, 0, 0, 0.15);
+    min-height: 100vh;
+    padding: 50px 0;
+    position: relative;
+    z-index: 0;
+}
+
+.figure-iphone {
+    height: 500px;
+}
+@media (min-width: 30em) {
+    .figure-iphone {
+        height: 600px;
+    }
+}
+
+
+.contact-img-container{
+    position: absolute;
+    top: 26%;
+    left: 28%;
+    z-index: 6;
+    border-bottom: 4px solid #CAC9CF;
+    width: 44%;
+    padding-bottom: 5px;
+}
+
+.contact-img{
+    width: 100px;
+    height: 100px;
+}
+
+.contact-name{
+    display: inline;
+    float: right;
+    position: relative;
+    left: -11%;
+}
+
+.iphone-top{
+    width: 46%;
+    top: 12.5%;
+    position: absolute;
+    z-index: 7;
+    left: 27%;
+    height: 3%;
+}
+
+.iphone-top-mid{
+    position: absolute;
+    z-index: 6;
+    width: 46%;
+    top: 15%;
+    left: 26.9%;
+}
+
+.iphone-bottom{
+    position: absolute;
+    top: 81%;
+    z-index: 6;
+    width: 46%;
+    left: 27%;
+}
+
+.img-iphone {
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+.list-imessages {
+    background: #fff;
+    bottom: 0;
+    box-shadow: inset 0 0 0 2px #999;
+    height: 375px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    left: 0;
+    margin: 60px auto;
+    max-width: 213px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+@media (min-width: 30em) {
+    .list-imessages {
+        height: 802px;
+        margin: 133px auto;
+        max-width: 451px;
+    }
+}
+
+.imessage {
+    border-radius: 10px;
+    clear: both;
+    font-size: .9em;
+    margin: 0 0 .75em;
+    max-width: 75%;
+    opacity: 0;
+    position: relative;
+    -webkit-transform: translateY(40px);
+    transform: translateY(40px);
+    -webkit-transition: all .2s ease-out;
+    transition: all .2s ease-out;
+}
+.imessage .imessage-inner {
+    opacity: 1;
+    -webkit-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+}
+.imessage.trim.loading {
+    background: transparent;
+}
+.imessage.trim.loading .imessage-indicator {
+    opacity: 1;
+}
+.imessage.trim.loading .imessage-inner {
+    opacity: 0;
+}
+.imessage.trim.loading:after {
+    opacity: 0;
+}
+.imessage.trim {
+    background: #e5e5ea;
+    float: left;
+}
+.imessage.trim:after {
+    border-bottom-right-radius: 1em 0.5em;
+    border-right: 0.5em solid #e5e5ea;
+    bottom: 0;
+    content: '';
+    height: 1em;
+    left: -0.5em;
+    opacity: 1;
+    position: absolute;
+    width: 0.5em;
+}
+.imessage.me {
+    background: #1289fe;
+    color: #fff;
+    float: right;
+}
+.imessage.me:after {
+    border-bottom-left-radius: 1em 0.5em;
+    border-left: 0.5em solid #1289fe;
+    bottom: 0;
+    content: '';
+    height: 1em;
+    position: absolute;
+    right: -0.5em;
+    width: 0.5em;
+}
+
+.imessage-indicator {
+    height: 35px;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: opacity .2s ease-out;
+    transition: opacity .2s ease-out;
+    width: auto;
+}
+.imessage-indicator path {
+    fill: #e5e5ea;
+    fill-rule: evenodd;
+}
+.imessage-indicator .dot {
+    -webkit-animation: ball-beat 1.1s 0s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation: ball-beat 1.1s 0s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    fill: rgba(158, 158, 158, 0.7);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+.imessage-indicator .dot:nth-child(2) {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}
+.imessage-indicator .dot:nth-child(3) {
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
+}
+
+@-webkit-keyframes ball-beat {
+    0% {
+        opacity: .7;
+    }
+    33.33% {
+        opacity: .55;
+    }
+    66.67% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes ball-beat {
+    0% {
+        opacity: .7;
+    }
+    33.33% {
+        opacity: .55;
+    }
+    66.67% {
+        opacity: .4;
+    }
+    100% {
+        opacity: 1;
+    }
+}

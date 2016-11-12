@@ -12,6 +12,7 @@
     <div class="content-container">
 
 
+        <!--RESTAURANT LIST-->
         <div style="transform: scale(0)" id="main-bruh" class="restaurant-list" *ngIf="ShowRestaurantList">
             <div class="ui grid">
                 <div class="two column row">
@@ -33,25 +34,17 @@
                             <a id="picture-number" class="ui green circular label">{{i + 1}}</a>
                         </div>
                     </div>
-                    <!--<div class="column">-->
-                        <!--<div class="ui green raised segment restaurant">Green</div>-->
-                    <!--</div>-->
-                    <!--<div class="column">-->
-                        <!--<div class="ui green raised segment restaurant">Green</div>-->
-                    <!--</div>-->
-                    <!--<div class="column second-column">-->
-                        <!--<div class="ui green raised segment restaurant">Green</div>-->
-                    <!--</div>-->
-                    <!--<div class="column second-column">-->
-                        <!--<div class="ui green raised segment restaurant">Green</div>-->
-                    <!--</div>-->
-                    <!--<div class="column second-column">-->
-                        <!--<div class="ui green raised segment restaurant">Green</div>-->
-                    <!--</div>-->
                 </div>
             </div>
 
         </div>
+
+
+        <!--RESTAURANT LIST-->
+        <div id="contact-id" style="transform: scale(0)" class="contact-list" *ngIf="ShowContactList">
+            <phone-page></phone-page>
+        </div>
+
 
 
     </div>
