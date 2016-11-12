@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Angular2 - Express starter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base href=".">
+
+        <link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+        <!-- 1. Load libraries -->
+        <!-- Polyfill(s) for older browsers -->
+        <script src="assets/js/vendor/shim.min.js"></script>
+        <script src="assets/js/vendor/zone.min.js"></script>
+        <script src="assets/js/vendor/Reflect.js"></script>
+        <script src="assets/js/vendor/system.js"></script>
+        <script src="assets/js/vendor/jquery.min.js"></script>
+        <script src="assets/js/vendor/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
+        <!-- 2. Configure SystemJS -->
+
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyACPe9BrjwlcYEGhtUNwcBAKqQHccbFM5Q">
+        </script>
+
+        <script src="https://www.gstatic.com/firebasejs/3.5.3/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBjIBpLHeRzZ27j5Q3qek6gIulGP5psD_U",
+                authDomain: "happyclone-76ed0.firebaseapp.com",
+                databaseURL: "https://happyclone-76ed0.firebaseio.com",
+                storageBucket: "happyclone-76ed0.appspot.com",
+                messagingSenderId: "1097358816669"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="systemjs.config.js"></script>
+        <script>
+            System.import('app').catch(function(err) { console.error(err); });
+        </script>
+    </head>
+
+    <body>
+
+
+
+        <app>
+            <div class="ui active inverted dimmer">
+                <div class="ui small loader"></div>
+            </div>
+        </app>
+        <!--  Production mod  -->
+        <!--<script src="assets/js/bundle.min.js"></script>-->
+    </body>
+</html>
