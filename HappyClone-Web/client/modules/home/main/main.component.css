@@ -1,24 +1,115 @@
 
-.map-container{
-    height: 100%;
-    width: 100%;
-}
+/*.map-container{*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+/*}*/
 
 .map-overlay{
     position: absolute;
+    top:0;
+    height:100%;
+    width:100%;
+    -moz-box-shadow:    inset 0 0 1500px 50px #000000;
+    -webkit-box-shadow: inset 0 0 1500px 50px #000000;
+    box-shadow:         inset 0 0 1500px 50px #000000;
 }
 .logo{
     position:absolute;
 }
 
-.map-container{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
+/*.map-container{*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
 
 #map{
-    height: 100%;
-    width: 100%;
+    /*height: 100%;*/
+    /*width: 100%;*/
 }
 
+.ui.right.corner.label{
+    font-size: 19px;
+    font-family: 'Coiny', cursive;
+}
+
+#open-id{
+    text-align: center;
+    color: #17AA1C;
+    width: 100%;
+    font-weight: 900;
+    letter-spacing: 17px;
+    display: block;
+}
+
+#picture-number{
+    position: absolute;
+    top: 69%;
+    left: 84%;
+    font-weight: 900;
+    font-size: 21px;
+}
+
+.restaurant-list{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
+.restaurant-img-list{
+    height: 242px !important;
+    /*width: 419px;*/
+}
+
+/*.restaurant-title-list{*/
+    /*position: absolute;*/
+    /*width: 93%;*/
+    /*text-align: center;*/
+    /*background-color: rgba(0,0,0,0.5);*/
+    /*color: #FFF;*/
+    /*height: 18%;*/
+/*}*/
+
+.contact-list{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
+.phone-call{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
+.main-gps-page{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
+
+.second-column{
+    /*margin-top: 20px;*/
+}
+
+.two.column.row > .column{
+    padding-top: 42px;
+}
+
+.two.column.row{
+    padding-left: 10px;
+    padding-right: 17px;
+}
+
+.ui.green.segment.restaurant{
+    height: 300px;
+}

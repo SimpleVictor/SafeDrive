@@ -6,6 +6,8 @@ import 'rxjs/Rx';
 @Injectable()
 export class ServerService{
 
+    googleKey = 'AIzaSyBjIBpLHeRzZ27j5Q3qek6gIulGP5psD_U';
+
     constructor(private http: Http) { }
 
 
@@ -28,6 +30,24 @@ export class ServerService{
         let options = new RequestOptions({ headers: headers });
 
         return this.http.get(`https://api.infermedica.com/v2/conditions`,options).map((res: Response) => res.json());
+    }
+
+    GetNearByRestaurant(lat, lng, type, keyword){
+
+        let obj = {
+            mylat : lat,
+            mylng : lng,
+            mytype : type,
+            mykeyword : keyword
+        };
+        let body = JSON.stringify(obj);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        // return this.http.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${mylat},${mylng}&radius=2000&type=${mytype}&keyword=${mykeyword}&key=AIzaSyBjIBpLHeRzZ27j5Q3qek6gIulGP5psD_U`).map((res: Response) => res.json());
+        return this.http.post(`login/restaurant-near-me`, body, options).map((res:Response) => res.json());
+
+
     }
 
 

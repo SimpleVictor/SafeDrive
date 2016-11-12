@@ -1,14 +1,60 @@
 <div class="main-container">
 
 
-    <div class="map-container">
-        <div id="map"></div>
-    </div>
+    <!--<div class="map-container">-->
+        <div id="map" style="height: 100%;width: 100%;"></div>
+    <!--</div>-->
 
     <div class="map-overlay">
 
     </div>
 
+    <div class="content-container">
+
+
+        <div style="transform: scale(0)" id="main-bruh" class="restaurant-list" *ngIf="ShowRestaurantList">
+            <div class="ui grid">
+                <div class="two column row">
+                    <div class="column" *ngFor="let food of my6Foods; let i = index">
+                        <div class="ui green raised segment restaurant" >
+                            <!--<h2 class="restaurant-title-list" style="position:absolute"><span>{{food.name}}</span></h2>-->
+                            <!--<a class="ui red ribbon label">Overview</a>-->
+                            <div class="ui fluid image">
+                                <div style="font-size:18px" class="ui red ribbon label">
+                                    <i class="spoon icon"> <span style="font-family: 'Coiny', cursive;">{{food.name}}</span></i>
+                                </div>
+                                <img class="restaurant-img-list" src='https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference= {{food.photos[0].photo_reference}}+&key=AIzaSyBjIBpLHeRzZ27j5Q3qek6gIulGP5psD_U'>
+                            </div>
+
+                            <!--<p>{{food.photos[0].photo_reference}}</p>-->
+                            <div class="ui bottom attached label">
+                                <span id="open-id" style="color:#17AA1C">{{food.opening_hours.open_now ? 'OPEN' : 'CLOSED'}}</span>
+                            </div>
+                            <a id="picture-number" class="ui green circular label">{{i + 1}}</a>
+                        </div>
+                    </div>
+                    <!--<div class="column">-->
+                        <!--<div class="ui green raised segment restaurant">Green</div>-->
+                    <!--</div>-->
+                    <!--<div class="column">-->
+                        <!--<div class="ui green raised segment restaurant">Green</div>-->
+                    <!--</div>-->
+                    <!--<div class="column second-column">-->
+                        <!--<div class="ui green raised segment restaurant">Green</div>-->
+                    <!--</div>-->
+                    <!--<div class="column second-column">-->
+                        <!--<div class="ui green raised segment restaurant">Green</div>-->
+                    <!--</div>-->
+                    <!--<div class="column second-column">-->
+                        <!--<div class="ui green raised segment restaurant">Green</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
 
 
 

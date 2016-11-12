@@ -23,9 +23,36 @@ export class MainPage implements AfterViewInit {
 
     firstCommitLogo:boolean = false;
 
+    loader;
+
+
     word_logo;
     img_logo;
     map_container;
+    map_overlay;
+    map;
+
+    extraMap;
+
+    lat = `40.5792700`;
+    lng = `-74.4115400`;
+
+    CurrentCenter;
+
+    //Containers to animate
+    RestaurantList;
+
+
+    //Containers to show
+    ShowRestaurantList: boolean = false;
+
+
+
+    //DATA TO SHOW ON PAGE
+        //Restaurant List
+        myFoods;
+        my6Foods:any[] = [];
+
 
     constructor(private serverService: ServerService) { }
 
@@ -49,22 +76,27 @@ export class MainPage implements AfterViewInit {
 
         });
 
-        var south_plainfield = {lat: 40.5792700, lng: -74.4115400};
+        this.CurrentCenter = {lat: 40.5792700, lng: -74.4115400};
 
-        var map = new google.maps.Map(document.getElementById('map'), {
+        this.map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
-            center: south_plainfield
+            center: this.CurrentCenter
         });
+
 
         var marker = new google.maps.Marker({
-            position: south_plainfield,
-            map: map
+            position: this.CurrentCenter,
+            map: this.map
         });
 
 
-        google.maps.event.addListener(map, "idle", function(){
-            google.maps.event.trigger(map, 'resize');
-        });
+
+        // $(document).ready(function() {
+            google.maps.event.addListener(this.map, "idle", () => {
+                console.log("went in here");
+                google.maps.event.trigger(this.map, 'resize');
+            });
+        // });
 
         // Zoom Level
         // 1 World
@@ -75,15 +107,17 @@ export class MainPage implements AfterViewInit {
 
 
         //MAPSIZE
-        this.map_container = $(".map-container");
-
+        this.map_container = $("#map");
+        this.map_overlay = $(".map-overlay");
         //GRAB THE LOGO ID
         this.img_logo = $(".robot-container")[0];
+        this.loader = $("#logo-box");
         this.word_logo = $(".logo-container")[0];
-        console.log(this.word_logo);
 
-        console.log(this.img_logo);
+        //RestaurantList
+        this.RestaurantList = $(".restaurant-list")[0];
 
+        // this.loader.css("display", "");
 
 
     }
@@ -117,7 +151,55 @@ export class MainPage implements AfterViewInit {
             this.ResizeLogo();
         };
 
+        let doThis = () => {
+            var cent = this.map.getCenter();
+            google.maps.event.trigger(this.map,"resize");
+            this.map.setCenter(cent);
+        }
 
+        this.loader.css("display", "");
+
+        TweenMax.to(this.map_container, 1, {width: '50%',ease:Back.easeInOut, onComplete: doThis});
+        TweenMax.to(this.map_overlay, 1, {width: '50%',ease:Back.easeInOut});
+            // var cent = this.map.getCenter();
+            // google.maps.event.trigger(this.map,"resize");
+            // this.map.setCenter(cent);
+
+        this.serverService.GetNearByRestaurant(this.lat, this.lng, 'restaurant', 'food').subscribe(
+            (data) => {
+                this.loader.css("display", "none");
+                let result = JSON.parse(data.body);
+
+                this.myFoods = result.results;
+                console.log(this.myFoods);
+
+                for(let i = 0; i < this.myFoods.length; i++){
+                    if(this.myFoods[i].photos){
+                        if(this.my6Foods.length <= 5){
+                            this.my6Foods.push(this.myFoods[i]);
+                        };
+                    };
+                };
+
+                console.log(this.my6Foods);
+                console.log("bruh");
+
+                this.ShowRestaurantList = true;
+                setTimeout(() => {
+                    let restaurantList = $("#main-bruh");
+                    TweenMax.to(restaurantList, 0.5, {scale: 1,ease:Circ.easeInOut});
+                },500);
+                // console.log(restaurantList)
+
+                // data.body.results = this.myFoods;
+            }, (err) => {
+                console.log(err);
+            }
+        );
+
+        // setTimeout(() => {
+        //     console.log(this.map);
+        // }, 2500);
 
 
         this.refreshSkill(skill);
