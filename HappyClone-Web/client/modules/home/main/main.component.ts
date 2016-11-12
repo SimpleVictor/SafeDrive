@@ -21,6 +21,12 @@ export class MainPage implements AfterViewInit {
 
     zone;
 
+    firstCommitLogo:boolean = false;
+
+    word_logo;
+    img_logo;
+    map_container;
+
     constructor(private serverService: ServerService) { }
 
     ngAfterViewInit(){
@@ -68,6 +74,18 @@ export class MainPage implements AfterViewInit {
         // 20 Buildings
 
 
+        //MAPSIZE
+        this.map_container = $(".map-container");
+
+        //GRAB THE LOGO ID
+        this.img_logo = $(".robot-container")[0];
+        this.word_logo = $(".logo-container")[0];
+        console.log(this.word_logo);
+
+        console.log(this.img_logo);
+
+
+
     }
 
     refreshSkill(skill){
@@ -80,6 +98,13 @@ export class MainPage implements AfterViewInit {
         );
     }
 
+    ResizeLogo(){
+        console.log("went here");
+        this.firstCommitLogo = true;
+        TweenMax.to(this.word_logo, 1, {left: '0',ease:Back.easeInOut});
+        TweenMax.to(this.img_logo, 1.5, {scale: 0.3, rotation: 360,left: '36%',top: '2%',ease:Back.easeInOut});
+    }
+
     WhoAreYou(skill){
         console.log(`You just called ${skill}`);
         this.refreshSkill(skill);
@@ -87,6 +112,14 @@ export class MainPage implements AfterViewInit {
 
     LookUpFoodPlaces(skill){
         console.log(`You just called ${skill}`);
+
+        if(!this.firstCommitLogo){
+            this.ResizeLogo();
+        };
+
+
+
+
         this.refreshSkill(skill);
     }
 

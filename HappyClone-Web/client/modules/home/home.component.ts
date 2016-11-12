@@ -1,13 +1,16 @@
-import { Component } from "@angular/core";
+import { Component , AfterViewInit} from "@angular/core";
 
 @Component({
     selector: "home",
     templateUrl: `client/modules/home/home.component.html`,
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit {
 
 
     constructor() {}
 
+    ngAfterViewInit(){
+
+    }
 
 }

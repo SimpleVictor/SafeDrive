@@ -7,6 +7,8 @@ import { routing } from "./home.routing";
 import { SharedModule } from "../shared/shared.module";
 import {MainPage} from "./main/main.component";
 import {WelcomePage} from "./welcome/welcome.component";
+import {RobotLogo} from "./robot/robot.component";
+import {LogoComponent} from "./logo/logo.component";
 
 @NgModule({
     imports: [
@@ -17,6 +19,8 @@ import {WelcomePage} from "./welcome/welcome.component";
     ],
     declarations: [
         MainPage,
+        RobotLogo,
+        LogoComponent,
         WelcomePage,
         HomeComponent
     ],

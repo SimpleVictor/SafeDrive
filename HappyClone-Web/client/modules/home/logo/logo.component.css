@@ -1,0 +1,25 @@
+.logo-container{
+    position: absolute;
+    left: 33%;
+    top: 3%;
+}
+
+.logo-container > h1{
+    font-family: 'Coiny', cursive;
+}
+
+#title-name{
+    /*text-align: center;*/
+    z-index: 2;
+    font-size: 100px ;
+    /*position:absolute ;*/
+    /*left:42%;*/
+    /*bottom:0;*/
+    text-shadow: -4px 4px #FFF, 4px 4px #FFF, -4px -4px #FFF, 4px -4px #FFF;
+    letter-spacing: 10px;
+    color: black;
+}
+
+.two-letter-logo{
+    color: #17AA1C;
+}
