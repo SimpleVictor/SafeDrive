@@ -63,6 +63,15 @@
     /*width: 419px;*/
 }
 
+.content-container{
+    height: 100%;
+    top: 0;
+    z-index: -3;
+    position: absolute;
+    background-color: #ccc;
+    width: 100%;
+}
+
 /*.restaurant-title-list{*/
     /*position: absolute;*/
     /*width: 93%;*/
@@ -73,6 +82,14 @@
 /*}*/
 
 .contact-list{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
+.music-list{
     top: 0;
     position: absolute;
     width: 50%;

@@ -47,6 +47,7 @@ export class MainPage implements AfterViewInit {
     ShowRestaurantList: boolean = false;
     ShowContactList: boolean = false;
     ShowMusicList: boolean = false;
+    ShowMyOwnMusic: boolean = false;
 
 
 
@@ -287,7 +288,7 @@ export class MainPage implements AfterViewInit {
 
     LetsPlayAGame(skill){
         console.log(`You just called ${skill}`);
-        this.refreshSkill(skill);    
+        this.refreshSkill(skill);
     }
 
     OpenMusicUp(skill){
@@ -319,6 +320,31 @@ export class MainPage implements AfterViewInit {
     CreateNotification(skill){
         console.log(`You just called ${skill}`);
         this.refreshSkill(skill);
+    }
+
+    OpenMyMusicUp(skill){
+        console.log(`You just called ${skill}`);
+        this.loader.css("display", "");
+        this.ShowMusicList = true;
+        this.ShowMyOwnMusic = true;
+        let overallMusic = $(".internal-music-container")[0];
+        TweenMax.to(overallMusic, 0.5, {scale: 0,ease:Circ.easeInOut});
+        setTimeout(() => {
+            // let musicList = $("#music-id");
+            this.loader.css("display", "none");
+            // TweenMax.to(musicList, 0.5, {scale: 1,ease:Circ.easeInOut});
+
+
+            let myMusic = $(".own-music-list-background")[0];
+            console.log(myMusic);
+            TweenMax.to(myMusic, 0.5, {scale: 1,ease:Circ.easeInOut});
+
+        },2000);
+
+
+
+
+        this.refreshSkill(skill)
     }
 
 

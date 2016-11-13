@@ -717,6 +717,140 @@ function CallLocation(intent, session, callback){
 }
 
 
+function LetsPlayAGame(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "Lets play a game"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/LetsPlayAGame.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `What game would you like to play?`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+function OpenMusicUp(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "Play some music"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/OpenMusicUp.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `We have a wide selection of music.`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+function CreateNotification(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "going to notification page now"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/CreateNotification.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `Would you like to set a timed notification? Or have it alert you the next time you are in the car.`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+
+function OpenMyMusicUp(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "opening my music up"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/OpenMyMusicUp.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `You can now choose which song to play.`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+
 
 
 /*
@@ -805,6 +939,28 @@ function onIntent(intentRequest, session, callback) {
     //TEXT
     else if (intentName === 'TextSpecificIndividual') {
         TextSpecificIndividual(intent, session, callback);
+    }
+
+    //Games
+    else if (intentName === 'LetsPlayAGame') {
+        LetsPlayAGame(intent, session, callback);
+    }
+
+    //Notification
+    else if (intentName === 'CreateNotification') {
+        CreateNotification(intent, session, callback);
+    }
+
+    //MUSIC
+    else if (intentName === 'OpenMusicUp') {
+        OpenMusicUp(intent, session, callback);
+    }else if(intentName === 'OpenMyMusicUp'){
+        OpenMyMusicUp(intent, session, callback);
+    }
+
+    //Notification
+    else if (intentName === 'CreateNotification') {
+        CreateNotification(intent, session, callback);
     }
 
     //UNIVERSAL METHOD

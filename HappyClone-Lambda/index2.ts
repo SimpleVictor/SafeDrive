@@ -817,6 +817,40 @@ function CreateNotification(intent, session, callback){
 }
 
 
+function OpenMyMusicUp(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "opening my music up"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/OpenMyMusicUp.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `You can now choose which song to play.`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+
 
 
 /*
@@ -920,6 +954,8 @@ function onIntent(intentRequest, session, callback) {
     //MUSIC
     else if (intentName === 'OpenMusicUp') {
         OpenMusicUp(intent, session, callback);
+    }else if(intentName === 'OpenMyMusicUp'){
+        OpenMyMusicUp(intent, session, callback);
     }
 
     //Notification
