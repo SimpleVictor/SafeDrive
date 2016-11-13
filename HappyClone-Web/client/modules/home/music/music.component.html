@@ -30,124 +30,125 @@
 
 
         <div class="music-play-list">
+            <audio id='audio' src="http://soundbible.com/mp3/Siren_Noise-KevanGC-1337458893.mp3"></audio>
             <table id="music-table" class="ui very basic collapsing celled table">
                 <thead>
                 <tr><th style="color: #FFF; text-align: center">Song</th>
                     <th style="color: #FFF; text-align: center">Artist</th>
                 </tr></thead>
                 <tbody>
-                <tr>
+                <tr *ngFor="let music of mainPage.AllMusic; let numCount = index;">
                     <td style="border-bottom: 2px solid green">
                         <h4 class="ui image header">
                             <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
                             <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
+                                {{music.song}}
+                                <div class="sub header" style="color: #17AA1C">{{numCount + 1}}
                                 </div>
                             </div>
                         </h4></td>
                     <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
+                        {{music.author}}
                     </td>
                 </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
-                <tr>
-                    <td style="border-bottom: 2px solid green">
-                        <h4 class="ui image header">
-                            <i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>
-                            <div class="content" style="color: #FFF; font-size: 20px">
-                                Lena
-                                <div class="sub header" style="color: #ccc">Human Resources
-                                </div>
-                            </div>
-                        </h4></td>
-                    <td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">
-                        22
-                    </td>
-                </tr>
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td style="border-bottom: 2px solid green">-->
+                        <!--<h4 class="ui image header">-->
+                            <!--<i class="plus icon" style="color: #FFF;padding: 0 40px;"></i>-->
+                            <!--<div class="content" style="color: #FFF; font-size: 20px">-->
+                                <!--Lena-->
+                                <!--<div class="sub header" style="color: #ccc">Human Resources-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</h4></td>-->
+                    <!--<td style="color: #FFF;font-size: 20px;font-weight:900;border-bottom: 2px solid green">-->
+                        <!--22-->
+                    <!--</td>-->
+                <!--</tr>-->
                 </tbody>
             </table>
         </div>

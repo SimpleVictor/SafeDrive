@@ -21,6 +21,16 @@ export class ServerService{
         return this.http.patch(`https://happyclone-76ed0.firebaseio.com/Listener/${skill}/.json`, body, options).map((res: Response) => res.json());
     }
 
+    Refresh_ActiveSkillForRefresh(skill){
+        let obj = {
+            active: 0
+        };
+        let body = JSON.stringify(obj);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.patch(`https://happyclone-76ed0.firebaseio.com/Listener/${skill}/.json`, body, options).map((res: Response) => res.json());
+    }
+
 
     getAllConditions(){
 
@@ -49,6 +59,17 @@ export class ServerService{
 
 
     }
+
+    ServerTurnOnLight(){
+        console.log("Went in here");
+        return this.http.get('login/on').map((res:Response) => res.json());
+    }
+
+    ServerTurnOfLight(){
+        console.log("Went in here");
+        return this.http.get('login/off').map((res:Response) => res.json());
+    }
+
 
 
 }

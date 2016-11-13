@@ -89,6 +89,14 @@
     height: 100%;
 }
 
+.light-list{
+    top: 0;
+    position: absolute;
+    width: 50%;
+    right: 0;
+    height: 100%;
+}
+
 .music-list{
     top: 0;
     position: absolute;

@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { ionicBootstrap, Platform } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import {TabsComponent} from "./pages/tabs/tabs.component";
+import {VideoService} from "./providers/video-service/video-service";
 
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  template: '<ion-nav [root]="rootPage"></ion-nav>',
+  providers: [VideoService]
 })
 export class MyApp {
   rootPage: any = TabsComponent;

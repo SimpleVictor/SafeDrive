@@ -2,6 +2,7 @@ import { Router, Request, Response, NextFunction } from "express";
 var requests = require('request');
 
 const loginRouter: Router = Router();
+console.log("test");
 
 loginRouter.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -9,6 +10,41 @@ loginRouter.use(function(req, res, next) {
     next();
 });
 
+// login method
+loginRouter.get("/on", function (request: Request, response: Response, next: NextFunction) {
+    console.log("Went in the back");
+    requests({
+        url: `http://192.168.1.12/porch/on`,
+        method: "GET",
+    }, function(err, responses){
+        if(err){
+            console.log("There was an error");
+            response.json("FAILED");
+
+        }else{
+            console.log("Successfully added into db");
+            response.json("done");
+        };
+    });
+});
+
+loginRouter.get("/off", function (request: Request, response: Response, next: NextFunction) {
+    console.log("Went in the back");
+    requests({
+        url: `http://192.168.1.12/porch/off`,
+        method: "GET",
+    }, function(err, responses){
+        if(err){
+            console.log("There was an error");
+            response.json("FAILED");
+
+        }else{
+            console.log("Successfully added into db");
+            response.json("done");
+        };
+    });
+
+});
 
 loginRouter.post("/restaurant-near-me", function (request: Request, response: Response, next: NextFunction) {
 
@@ -38,9 +74,6 @@ loginRouter.post("/restaurant-near-me", function (request: Request, response: Re
 
 });
 
-// login method
-loginRouter.post("/", function (request: Request, response: Response, next: NextFunction) {
 
-});
 
 export { loginRouter }

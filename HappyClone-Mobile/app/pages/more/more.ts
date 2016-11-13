@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , ToastController} from 'ionic-angular';
+import {VideoService} from "../../providers/video-service/video-service";
 
 /*
   Generated class for the MorePage page.
@@ -12,7 +13,33 @@ import { NavController } from 'ionic-angular';
 })
 export class MorePage {
 
-  constructor(private navCtrl: NavController) {
+  textMessage;
+
+  constructor(private navCtrl: NavController, private videoService: VideoService, public toastCtrl: ToastController) {
+
+  }
+
+  sendText(){
+
+    console.log(this.textMessage);
+
+    this.videoService.SendTextToFireBase(this.textMessage).subscribe(
+      (data) => {
+        console.log("Sucess!");
+        let toast = this.toastCtrl.create({
+          message: 'Text Was Sent Successfully. Give me a wink ;)',
+          duration: 3000
+        });
+        toast.present();
+      }, (err) => {
+        let toast = this.toastCtrl.create({
+          message: 'IT FAILED!! WARN ME BROO',
+          duration: 3000
+        });
+        toast.present();
+        console.log(err);
+      }
+    )
 
   }
 

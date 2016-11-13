@@ -15,4 +15,16 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Text Message</ion-label>
+      <ion-input id="myInput" type="Text" [(ngModel)]="textMessage"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button block tappable ion-button (click)="sendText()">Send Text</button>
+  </div>
+
 </ion-content>

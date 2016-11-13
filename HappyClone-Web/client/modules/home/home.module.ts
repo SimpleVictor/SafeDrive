@@ -12,6 +12,7 @@ import {LogoComponent} from "./logo/logo.component";
 import {LoaderComponent} from "./loader/loader.component";
 import {PhonePage} from "./phone/phone.component";
 import {MusicPage} from "./music/music.component";
+import {LightComponent} from "./lightswitch/lightswitch.component";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {MusicPage} from "./music/music.component";
         LogoComponent,
         PhonePage,
         MusicPage,
+        LightComponent,
         LoaderComponent,
         WelcomePage,
         HomeComponent
