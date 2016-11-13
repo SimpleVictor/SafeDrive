@@ -540,23 +540,23 @@ function SaveCurrentDestination(intent, session, callback){
 
 function TextSpecificIndividual(intent, session, callback){
     const cardTitle = intent.name;
-    const TextName = intent.slots.TextName;
+    const ContactName = intent.slots.ContactName;
     let repromptText = '';
     let sessionAttributes = {};
     const shouldEndSession = true;
     let speechOutput = '';
 
-    if (TextName) {
-        const myTextName= TextName.value;
+    if (ContactName) {
+        const myContactName= ContactName.value;
 
 
         let obj = {
             active: 1,
-            respond: `${myTextName} is now going to be text`
+            respond: `${myContactName}`
         };
 
         requests({
-            url: `https://baymax-bfd1a.firebaseio.com/Listener/TextSpecificIndividual.json`,
+            url: `https://happyclone-76ed0.firebaseio.com/Listener/TextSpecificIndividual.json`,
             method: "Patch",
             body: obj,
             json: true
@@ -569,7 +569,7 @@ function TextSpecificIndividual(intent, session, callback){
                     buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
             }else{
                 console.log("Successfully added into db");
-                speechOutput = `What would you like to text to ${TextName}`;
+                speechOutput = `What would you like to text to ${myContactName}`;
                 callback(sessionAttributes,
                     buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
             };
@@ -851,6 +851,127 @@ function OpenMyMusicUp(intent, session, callback){
 }
 
 
+function CheckHomeStatus(intent, session, callback){
+    const cardTitle = intent.name;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    let obj = {
+        active: 1,
+        respond: "opening my music up"
+    };
+
+    requests({
+        url: `https://happyclone-76ed0.firebaseio.com/Listener/OpenMyMusicUp.json`,
+        method: "Patch",
+        body: obj,
+        json: true
+    }, function(err, response){
+        if(err){
+            console.log("There was an error");
+            console.log(err);
+            speechOutput = "There was a problem";
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        }else{
+            console.log("Successfully added into db");
+            speechOutput = `You can now choose which song to play.`;
+            callback(sessionAttributes,
+                buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+        };
+    });
+}
+
+function TurnOffLight(intent, session, callback){
+    const cardTitle = intent.name;
+    const LightRoom = intent.slots.LightRoom;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    if (LightRoom) {
+        const myLightRoom = LightRoom.value;
+
+
+        let obj = {
+            active: 1,
+            respond: `Room ${LightRoom} will now be switched`
+        };
+
+        requests({
+            url: `https://baymax-bfd1a.firebaseio.com/Listener/TurnOffLight.json`,
+            method: "Patch",
+            body: obj,
+            json: true
+        }, function(err, response){
+            if(err){
+                console.log("There was an error");
+                console.log(err);
+                speechOutput = "There was a problem.";
+                callback(sessionAttributes,
+                    buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+            }else{
+                console.log("Successfully added into db");
+                speechOutput = `Turning the light switch now.`;
+                callback(sessionAttributes,
+                    buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+            };
+        });
+
+    } else {
+        speechOutput = "What is your number again?";
+        callback(sessionAttributes,
+            buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+    }
+}
+
+function ChooseAGame(intent, session, callback){
+    const cardTitle = intent.name;
+    const GameName = intent.slots.GameName;
+    let repromptText = '';
+    let sessionAttributes = {};
+    const shouldEndSession = true;
+    let speechOutput = '';
+
+    if (GameName) {
+        const myGameName= GameName.value;
+
+
+        let obj = {
+            active: 1,
+            respond: `${GameName} is now going to be played`
+        };
+
+        requests({
+            url: `https://baymax-bfd1a.firebaseio.com/Listener/ChooseAGame.json`,
+            method: "Patch",
+            body: obj,
+            json: true
+        }, function(err, response){
+            if(err){
+                console.log("There was an error");
+                console.log(err);
+                speechOutput = "There was a problem.";
+                callback(sessionAttributes,
+                    buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+            }else{
+                console.log("Successfully added into db");
+                speechOutput = `Starting the game now.`;
+                callback(sessionAttributes,
+                    buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+            };
+        });
+
+    } else {
+        speechOutput = "What is your number again?";
+        callback(sessionAttributes,
+            buildSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+    }
+}
+
 
 
 /*
@@ -941,9 +1062,18 @@ function onIntent(intentRequest, session, callback) {
         TextSpecificIndividual(intent, session, callback);
     }
 
+    //HOMES
+    else if (intentName === 'CheckHomeStatus'){
+        CheckHomeStatus(intent, session, callback);
+    }else if (intentName === 'TurnOffLight'){
+        TurnOffLight(intent, session, callback);
+    }
+
     //Games
     else if (intentName === 'LetsPlayAGame') {
         LetsPlayAGame(intent, session, callback);
+    }else if(intentName === 'ChooseAGame'){
+        ChooseAGame(intent, session, callback);
     }
 
     //Notification

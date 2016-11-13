@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MainPage} from "../main/main.component";
 
 @Component({
     selector: 'phone-page',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: `client/modules/home/phone/phone.component.html`
 })
 export class PhonePage implements OnInit {
-    constructor() { }
+    constructor(public mainPage: MainPage) { }
 
     ngOnInit() { }
 

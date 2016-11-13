@@ -25,6 +25,7 @@ export class MainPage implements AfterViewInit {
 
     loader;
 
+    textMessage= "On my way!!!";
 
     word_logo;
     img_logo;
@@ -39,16 +40,22 @@ export class MainPage implements AfterViewInit {
 
     CurrentCenter;
 
+    //Reverse
+    ReverseiPhoneContactList;
+
     //Containers to animate
     RestaurantList;
 
+
+    //Picture to show on phone
+    mainContact = "jason";
 
     //Containers to show
     ShowRestaurantList: boolean = false;
     ShowContactList: boolean = false;
     ShowMusicList: boolean = false;
     ShowMyOwnMusic: boolean = false;
-
+    ShowIndividualContactMessage: boolean = false;
 
 
     //DATA TO SHOW ON PAGE
@@ -241,8 +248,6 @@ export class MainPage implements AfterViewInit {
             TweenMax.to(contactList, 0.5, {scale: 1,ease:Circ.easeInOut});
         },3000);
 
-
-
         this.refreshSkill(skill);
     }
 
@@ -261,8 +266,36 @@ export class MainPage implements AfterViewInit {
         this.refreshSkill(skill);
     }
 
-    TextSpecificIndividual(skill){
+    TextSpecificIndividual(skill, obj){
         console.log(`You just called ${skill}`);
+
+        let res = obj[skill].respond;
+        this.mainContact = res;
+
+        let iphoneScreenList = $(".my-contact-list");
+        this.ReverseiPhoneContactList = TweenMax.to(iphoneScreenList[0], 1, {scale: '0',ease:Back.easeInOut});
+
+
+
+        setTimeout(() => {
+            let iphoneMessageArea = $(".contact-message-page");
+            iphoneMessageArea.css("opacity","1");
+            TweenMax.from(iphoneMessageArea[0], 0.5, {scale: '0',ease:Back.easeInOut});
+        }, 500);
+
+
+        setTimeout(() => {
+           let message1 = $("#message1");
+           let message2 = $("#message2");
+           let message3 = $("#message3");
+            TweenMax.to(message1[0], 2, {y: '-40px',opacity: 1,ease:Back.easeInOut});
+            TweenMax.to(message2[0], 2, {y: '-40px',opacity: 1,ease:Back.easeInOut});
+            TweenMax.to(message3[0], 2, {y: '-40px',opacity: 1,ease:Back.easeInOut});
+        }, 4000);
+
+        // console.log(this.ReverseiPhoneContactList);
+
+
         this.refreshSkill(skill);
     }
 
@@ -289,6 +322,11 @@ export class MainPage implements AfterViewInit {
     LetsPlayAGame(skill){
         console.log(`You just called ${skill}`);
         this.refreshSkill(skill);
+    }
+
+    ChooseAGame(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill)
     }
 
     OpenMusicUp(skill){
@@ -346,6 +384,18 @@ export class MainPage implements AfterViewInit {
 
         this.refreshSkill(skill)
     }
+
+    CheckHomeStatus(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill)
+    }
+
+    TurnOffLight(skill){
+        console.log(`You just called ${skill}`);
+        this.refreshSkill(skill)
+    }
+
+
 
 
 }

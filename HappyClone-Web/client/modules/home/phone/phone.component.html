@@ -3,20 +3,20 @@
         <div class="max-width-4 mx-auto">
             <div class="clearfix">
                 <div class="col-12 sm-col sm-col-12">
-                    <h1 class="regular white center mb3">Chatting with Robotz</h1>
-                    <div class="relative figure-iphone">
+                    <div id="iphone-screen-list" class="relative figure-iphone">
                         <!--<img class="img-iphone" src="https://cdn.rawgit.com/mattrothenberg/trim/master/src/_images/iphone-background.svg" alt="" />-->
-                        <img class="img-iphone" src="assets/img/iphone-background.svg" alt="" />
-                        <img class="iphone-top" src="assets/img/iphone-top.png">
-                        <img class="iphone-top-mid" src="assets/img/iphone-top-mid.png">
-                        <img class="iphone-bottom" src="assets/img/iphone-bottom.png">
 
+
+                            <img class="img-iphone" src="assets/img/iphone-background.svg" alt="" />
 
 
 
                         <!--Contact List-->
                         <div class="my-contact-list">
-                            <ul style="list-style-type: none;">
+                            <img class="iphone-top" src="assets/img/iphone-top.png">
+                            <img class="iphone-top-mid" src="assets/img/iphone-top-mid.png">
+                            <img class="iphone-bottom" src="assets/img/iphone-bottom.png">
+                            <ul style="list-style-type: none;height: 165%">
                                 <li class="contact-img-container">
                                     <img class="contact-img" src="assets/img/profile/victor.jpg">
                                     <h1 class="contact-name">Victor</h1>
@@ -41,20 +41,34 @@
                             </ul>
                         </div>
 
+                        <div class="contact-message-page" style="opacity: 0">
+                            <img class="iphone-top" src="assets/img/iphone-top.png">
+                            <img class="iphone-top-mid" src="assets/img/iphone/individual-top-mid.jpg">
+                            <img class="iphone-bottom" src="assets/img/iphone-bottom.png">
+                            <img class="main-contact" src="assets/img/profile/{{mainPage.mainContact}}.jpg" style="width:50px;height:50px;border-radius: 100%">
+                        </div>
+
 
                         <div class="list-imessages px2 pt2">
-                            <p id="message1" class="imessage me py1 px2">Can you please tell me ...</p>
-                            <p id="message2" class="imessage loading trim py1 px2">
+                            <p id="message1" class="imessage me py1 px2" style="opacity: 0;top: 170px;padding: 15px;font-size: 25px;transform:matrix(1, 0, 0, 1, 0, 40);right: 15%;">{{mainPage.textMessage}}</p>
+
+
+                            <p id="message2" class="imessage me2 py1 px2" style="opacity: 0;top: 170px;padding: 15px;font-size: 25px;transform:matrix(1, 0, 0, 1, 0, 40);right: 54%;">{{mainPage.textMessage}}</p>
+
+                            <p id="message3" class="imessage me3 py1 px2" style="opacity: 0;top: 182px;padding: 15px;font-size: 25px;transform:matrix(1, 0, 0, 1, 0, 40);right: 15%;">{{mainPage.textMessage}}</p>
+
+                            <p class="imessage loading trim py1 px2">
                                 <img class="imessage-indicator" src="https://rawgit.com/mattrothenberg/trim/master/src/_images/imessage-indicator.svg" alt="iMessage Typing Indicator" />
                                 <span class="imessage-inner">Whoa, it's you!</span>
                             </p>
-                            <p id="message3" class="imessage me py1 px2">Obvi. It me!</p>
-                            <p id="message4" class="imessage loading trim py1 px2">
+                            <p class="imessage me py1 px2">Obvi. It me!</p>
+                            <p class="imessage loading trim py1 px2">
                                 <img class="imessage-indicator" src="https://rawgit.com/mattrothenberg/trim/master/src/_images/imessage-indicator.svg" alt="iMessage Typing Indicator" />
                                 <span class="imessage-inner">Hahahaha I'm a robot</span>
                             </p>
                         </div>
                     </div>
+
                     <!--<button id="replay" class="btn white btn-outline mt3 regular mx-auto block">Replay Conversation</button>-->
                 </div>
             </div>

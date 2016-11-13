@@ -46,6 +46,24 @@
     padding-bottom: 5px;
 }
 
+.main-contact{
+    width: 50px;
+    top: 16%;
+    height: 50px;
+    border-radius: 100%;
+    position: absolute;
+    left: 46%;
+    z-index: 6;
+}
+
+.contact-message-page{
+    position: absolute;
+    top: 0%;
+    z-index: 7;
+    height: 100%;
+    width: 100%;
+}
+
 .contact-img{
     width: 100px;
     height: 100px;
@@ -165,15 +183,53 @@
     color: #fff;
     float: right;
 }
+
+.imessage.me2 {
+    background: #1289fe;
+    color: #fff;
+    float: right;
+}
+
+.imessage.me3 {
+    background: #1289fe;
+    color: #fff;
+    float: right;
+}
+
 .imessage.me:after {
-    border-bottom-left-radius: 1em 0.5em;
+    border-bottom-left-radius: 1em 1.5em;
     border-left: 0.5em solid #1289fe;
-    bottom: 0;
+    bottom: -11px;
     content: '';
-    height: 1em;
+    height: 1.3em;
     position: absolute;
-    right: -0.5em;
+    right: -0.3em;
     width: 0.5em;
+    transform: rotate(-33deg);
+}
+
+.imessage.me2:after {
+    border-bottom-left-radius: 1em 1.5em;
+    border-left: 0.5em solid #1289fe;
+    bottom: -11px;
+    content: '';
+    height: 1.3em;
+    position: absolute;
+    right: 6.5em;
+    width: 0.5em;
+    transform: rotate(45deg);
+}
+
+.imessage.me3:after {
+    border-bottom-left-radius: 1em 1.5em;
+    border-left: 0.5em solid #1289fe;
+    bottom: -11px;
+    content: '';
+    height: 1.3em;
+    position: absolute;
+    right: -0.3em;
+    width: 0.5em;
+    transform: rotate(-33deg);
 }
 
 .imessage-indicator {
